@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" rx="20" fill="#0B0D10"/>
+  <text x="50" y="50" font-family="monospace" font-size="50" font-weight="bold" fill="#FFA63D" text-anchor="middle" dominant-baseline="central">KP</text>
+  <rect x="75" y="65" width="10" height="4" fill="#FFA63D">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+  </rect>
+</svg>
