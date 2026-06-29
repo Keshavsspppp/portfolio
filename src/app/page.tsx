@@ -3,11 +3,7 @@ import { AboutReadme } from "@/components/sections/AboutReadme";
 import { SkillsDeps } from "@/components/sections/SkillsDeps";
 import { ProjectsProcess } from "@/components/sections/ProjectsProcess";
 import { Experience } from "@/components/sections/Experience";
-import { Education } from "@/components/sections/Education";
-import { Achievements } from "@/components/sections/Achievements";
-import { Certifications } from "@/components/sections/Certifications";
 import { ContactTerminal } from "@/components/sections/ContactTerminal";
-import { KeyboardSection } from "@/components/sections/KeyboardSection";
 import { TerminalSection } from "@/components/sections/TerminalSection";
 
 export default function Home() {
@@ -19,9 +15,6 @@ export default function Home() {
       <SkillsDeps />
       <ProjectsProcess />
       <Experience />
-      <Education />
-      <Achievements />
-      <Certifications />
       <ContactTerminal />
     </div>
   );
