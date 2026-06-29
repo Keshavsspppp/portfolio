@@ -12,8 +12,28 @@ import { RotatingText } from "@/components/ui/RotatingText";
 
 export function HeroBoot() {
   const prefersReduced = useReducedMotion();
-  const [completedLines, setCompletedLines] = useState(prefersReduced ? bootSequence.length : 0);
+  const [skipBoot, setSkipBoot] = useState(false);
+  const [completedLines, setCompletedLines] = useState(0);
+
+  useEffect(() => {
+    if (prefersReduced || localStorage.getItem("skipBoot")) {
+      setSkipBoot(true);
+      setCompletedLines(bootSequence.length);
+    }
+  }, [prefersReduced]);
+
   const bootDone = completedLines >= bootSequence.length;
+
+  useEffect(() => {
+    if (bootDone) return;
+    const handleKeyDown = () => {
+      setSkipBoot(true);
+      setCompletedLines(bootSequence.length);
+      localStorage.setItem("skipBoot", "true");
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [bootDone]);
 
   const handleLineComplete = useCallback(() => {
     setCompletedLines((prev) => prev + 1);
@@ -22,14 +42,14 @@ export function HeroBoot() {
   // Calculate cumulative delay for each line
   const lineDelays = useMemo(() => {
     const delays: number[] = [];
-    let cumulative = 600; // initial delay before first line
+    let cumulative = 200; // initial delay before first line
     bootSequence.forEach((line, i) => {
       delays.push(cumulative);
       // estimate time for this line: prompt typing + response typing + gap
-      const promptTime = line.prompt.length * 40;
-      const responseTime = line.response.length * 25;
-      cumulative += promptTime + responseTime + 400;
-      if (i < bootSequence.length - 1) cumulative += 100;
+      const promptTime = line.prompt.length * 20;
+      const responseTime = line.response.length * 10;
+      cumulative += promptTime + responseTime + 100;
+      if (i < bootSequence.length - 1) cumulative += 50;
     });
     return delays;
   }, []);
@@ -55,7 +75,7 @@ export function HeroBoot() {
                 <BootLine
                   prompt={line.prompt}
                   response={line.response}
-                  delay={prefersReduced ? 0 : lineDelays[i]}
+                  delay={skipBoot ? 0 : lineDelays[i]}
                   onComplete={handleLineComplete}
                 />
               )}
@@ -65,13 +85,19 @@ export function HeroBoot() {
           {/* Boot complete indicator */}
           {bootDone && (
             <motion.div
-              initial={prefersReduced ? { opacity: 1 } : { opacity: 0 }}
+              initial={skipBoot ? { opacity: 1 } : { opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="font-mono text-xs text-[#8B92A0] mt-4"
+              className="font-mono text-xs text-[#8B92A0] mt-4 flex justify-between items-center"
             >
               <span className="text-green-500">[boot complete]</span>
             </motion.div>
+          )}
+
+          {!bootDone && (
+            <div className="font-mono text-[10px] text-[#8B92A0] mt-4 animate-pulse">
+              [Press any key to skip]
+            </div>
           )}
         </div>
 

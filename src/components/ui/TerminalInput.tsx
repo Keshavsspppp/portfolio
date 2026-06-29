@@ -11,7 +11,7 @@ export function TerminalInput({ label, className, ...props }: TerminalInputProps
         {label}:
       </label>
       <input
-        className={cn("terminal-input flex-1", className)}
+        className={cn("terminal-input flex-1 text-[16px]", className)}
         {...props}
       />
     </div>
@@ -30,7 +30,7 @@ export function TerminalTextarea({ label, className, ...props }: TerminalTextare
       </label>
       <textarea
         className={cn(
-          "terminal-input flex-1 resize-none min-h-[80px]",
+          "terminal-input flex-1 resize-none min-h-[80px] text-[16px]",
           className
         )}
         {...props}

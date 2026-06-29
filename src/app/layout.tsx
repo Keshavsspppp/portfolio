@@ -34,6 +34,7 @@ export const metadata: Metadata = {
     "AI/ML",
   ],
   authors: [{ name: "Keshav Prasad" }],
+  metadataBase: new URL("https://keshavprasad.dev"),
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -42,12 +43,21 @@ export const metadata: Metadata = {
     description:
       "Portfolio of Keshav Prasad, a Full-Stack Developer, AI/ML Enthusiast, and Competitive Programmer based in Raipur, India.",
     siteName: "Keshav Prasad Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg", // Create this screenshot later
+        width: 1200,
+        height: 630,
+        alt: "Keshav Prasad - System Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Keshav Prasad | Full-Stack Developer",
     description:
       "Portfolio of Keshav Prasad, a Full-Stack Developer, AI/ML Enthusiast, and Competitive Programmer based in Raipur, India.",
+    images: ["/og-image.jpg"],
   },
 };
 

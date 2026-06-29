@@ -39,6 +39,16 @@ export function StatusBar() {
           <span>main</span>
         </div>
 
+        <a 
+          href="/ResumeKeshav.pdf" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hidden md:flex items-center gap-1.5 h-full px-2 hover:bg-[#ffb860] hover:text-[#0B0D10] text-[#0B0D10] cursor-pointer transition-colors"
+          aria-label="View Resume"
+        >
+          <span className="font-bold tracking-tight">&gt; cat resume.pdf</span>
+        </a>
+
         <div className="hidden sm:flex items-center gap-1.5 h-full px-2 hover:bg-[#ffb860] cursor-pointer transition-colors">
           <MapPin className="w-3.5 h-3.5" />
           <span>{personalInfo.location}</span>

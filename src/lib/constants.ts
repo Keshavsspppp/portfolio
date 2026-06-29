@@ -162,6 +162,7 @@ export const projects: Project[] = [
     description: "A full-stack clone of the Internshala platform, facilitating connections between students and employers with robust job posting and application features.",
     stack: ["TypeScript", "Next.js", "Tailwind CSS"],
     github: "https://github.com/Keshavsspppp/Internshala-Clone",
+    live: "https://internshala-clone-keshav.vercel.app",
     role: "Solo Developer",
   },
   {
@@ -172,6 +173,7 @@ export const projects: Project[] = [
     description: "An AI-powered mock interviewer that conducts dynamic technical and behavioral interviews, providing real-time feedback to users.",
     stack: ["TypeScript", "OpenAI", "React"],
     github: "https://github.com/Keshavsspppp/AI-Interviewer",
+    live: "https://ai-interviewer-keshav.vercel.app",
     role: "Solo Developer",
   },
   {
@@ -182,6 +184,7 @@ export const projects: Project[] = [
     description: "A defense or aviation tracking project focused on creating shielded systems or tracking capabilities.",
     stack: ["TypeScript", "Node.js"],
     github: "https://github.com/Keshavsspppp/Aeroshield",
+    live: "https://aeroshield.vercel.app",
     role: "Solo Developer",
   },
   {
@@ -192,6 +195,7 @@ export const projects: Project[] = [
     description: "An intelligent study assistant leveraging AI to generate quizzes, flashcards, and study schedules based on user input.",
     stack: ["JavaScript", "React", "AI API"],
     github: "https://github.com/Keshavsspppp/PrepWise-AI",
+    live: "https://prepwise-ai.vercel.app",
     role: "Solo Developer",
   },
   {
@@ -202,6 +206,7 @@ export const projects: Project[] = [
     description: "A unified tracking application for managing daily habits, tasks, or metrics with a clean dashboard interface.",
     stack: ["TypeScript", "React"],
     github: "https://github.com/Keshavsspppp/Trackerr",
+    live: "https://trackerr-app.vercel.app",
     role: "Solo Developer",
   },
   {
