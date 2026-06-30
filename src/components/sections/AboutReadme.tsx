@@ -19,7 +19,7 @@ export function AboutReadme() {
             </h2>
 
             {/* Bio and Image */}
-            <div className="flex flex-col md:flex-row gap-6 mb-8 items-start">
+            <div className="flex flex-col-reverse md:flex-row gap-6 mb-8 items-center md:items-start">
               <div className="flex-1">
                 <p className="text-[#E8EAED] leading-relaxed text-sm sm:text-base">
                   {personalInfo.bio}

@@ -94,7 +94,7 @@ export function ContactTerminal() {
               <button
                 type="submit"
                 disabled={formState !== "idle"}
-                className="inline-flex items-center gap-2 px-5 py-2.5 font-mono text-sm font-semibold bg-[#FFA63D] text-[#0B0D10] rounded hover:bg-[#ffb860] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                className="inline-flex justify-center items-center gap-2 px-5 py-2.5 font-mono text-sm font-semibold bg-[#FFA63D] text-[#0B0D10] rounded hover:bg-[#ffb860] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer w-full sm:w-auto"
               >
                 {formState === "idle" && (
                   <>

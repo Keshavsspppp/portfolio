@@ -60,10 +60,10 @@ export function FlowingMenu() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-[100] px-6 sm:px-8 py-6 mix-blend-difference pointer-events-none">
+    <nav className="fixed top-0 left-0 w-full z-[100] px-4 sm:px-8 py-4 sm:py-6 mix-blend-difference pointer-events-none">
       <div 
         ref={containerRef}
-        className="max-w-7xl mx-auto flex justify-end gap-6 sm:gap-10 pointer-events-auto"
+        className="max-w-7xl mx-auto flex flex-wrap justify-center sm:justify-end gap-2 sm:gap-10 pointer-events-auto"
       >
         {navLinks.map((link, idx) => {
           const isActive = activeSection === link.href.substring(1);
@@ -73,7 +73,7 @@ export function FlowingMenu() {
               key={link.label}
               href={link.href}
               onClick={(e) => scrollToSection(e, link.href)}
-              className="flow-link relative px-4 py-2 overflow-hidden rounded-sm group font-mono text-sm sm:text-base font-bold tracking-widest uppercase transition-transform active:scale-95"
+              className="flow-link relative px-2 sm:px-4 py-2 overflow-hidden rounded-sm group font-mono text-xs sm:text-base font-bold tracking-widest uppercase transition-transform active:scale-95"
               onMouseEnter={() => setHoveredIndex(idx)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
