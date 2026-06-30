@@ -10,12 +10,19 @@ export function InteractiveGlow() {
   useEffect(() => {
     if (prefersReduced) return;
 
+    let rafId: number;
     const handleMouseMove = (e: MouseEvent) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        setPosition({ x: e.clientX, y: e.clientY });
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      cancelAnimationFrame(rafId);
+    };
   }, [prefersReduced]);
 
   if (prefersReduced) return null;

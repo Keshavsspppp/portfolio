@@ -4,6 +4,14 @@ import { personalInfo, education, achievements } from "@/lib/constants";
 import { FileTab } from "@/components/ui/FileTab";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+
+import type { Props as GitHubCalendarProps } from "react-github-calendar";
+
+const GitHubCalendar = dynamic<GitHubCalendarProps>(
+  () => import("react-github-calendar").then((mod) => mod.GitHubCalendar),
+  { ssr: false }
+);
 
 export function AboutReadme() {
   return (
@@ -69,7 +77,7 @@ export function AboutReadme() {
               Highlights
             </h3>
 
-            <ul className="space-y-2">
+            <ul className="space-y-2 mb-8">
               {achievements.map((a, i) => (
                 <li
                   key={i}
@@ -80,6 +88,28 @@ export function AboutReadme() {
                 </li>
               ))}
             </ul>
+
+            {/* Contributions */}
+            <h3 className="font-mono text-lg font-bold text-[#E8EAED] mb-4">
+              <span className="text-[#8B92A0] font-normal">## </span>
+              Contributions
+            </h3>
+            
+            <div className="w-full overflow-x-auto pb-4 no-visible-scrollbar rounded-md">
+              <div className="min-w-[700px]">
+                <GitHubCalendar 
+                  username="Keshavsspppp"
+                  theme={{
+                    light: ['#0B0D10', '#4A2A0C', '#844B15', '#C06B1F', '#FFA63D'],
+                    dark: ['#0B0D10', '#4A2A0C', '#844B15', '#C06B1F', '#FFA63D']
+                  }}
+                  colorScheme="dark"
+                  fontSize={12}
+                  blockSize={12}
+                  blockMargin={4}
+                />
+              </div>
+            </div>
           </div>
         </ScrollReveal>
       </div>
